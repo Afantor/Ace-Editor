@@ -1,35 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Ace Editor</title>
-      <style type="text/css" media="screen">
-        body { 
-          background: black; 
-        }
-        #editor { 
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-        }
-      </style>
-  </head>
-<body>
-
-  <div id="editor"># Python 2.7.15 (v2.7.15:ca079a3ea3, Apr 30 2018, 16:30:26) [MSC v.1500 64 bit (AMD64)] on win32
+<html>
+    <head>
+        <title>ACE Editor</title>
+        <style type="text/css" media="screen">
+            body { 
+                background: black; 
+            }
+            #code { 
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+        </style>
+        <!--导入js库-->
+        <script src="libs/ace/1.4.1/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="libs/ace/1.4.1/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+    </head>
+    
+    <body>
+        <!--代码输入框（注意请务必设置高度，否则无法显示）-->
+        <div id="code" class="ace_editor" style="min-height:400px"><textarea class="ace_text-input">
+# Python 2.7.15 (v2.7.15:ca079a3ea3, Apr 30 2018, 16:30:26) [MSC v.1500 64 bit (AMD64)] on win32
 # Type "copyright", "credits" or "license()" for more information.
   
-  print('Hello world!')
-  </div>
+    print('Hello world!')  
+        </textarea></div>
 
-<script src="ace/src/ace.js" type="text/javascript" charset="utf-8"></script>
-<script src="ace/src/theme-monokai.js" type="text/javascript" charset="utf-8"></script>
-<script src="ace/src/mode-python.js" type="text/javascript" charset="utf-8"></script>
-<script>
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/monokai");
-    editor.getSession().setMode("ace/mode/python");
-</script>
-</body>
+        <script>
+            //初始化对象
+            editor = ace.edit("code");
+            
+            //设置风格和语言（更多风格和语言，请到github上相应目录查看）
+            theme = "monokai"
+            language = "python"
+            editor.setTheme("ace/theme/" + theme);
+            editor.session.setMode("ace/mode/" + language);
+            
+            //字体大小
+            editor.setFontSize(16);
+            
+            //设置只读（true时只读，用于展示代码）
+            editor.setReadOnly(false); 
+            
+            //自动换行,设置为off关闭
+            editor.setOption("wrap", "free")
+            
+            //启用提示菜单
+            ace.require("ace/ext/language_tools");
+            editor.setOptions({
+                    enableBasicAutocompletion: true,
+                    enableSnippets: true,
+                    enableLiveAutocompletion: true
+                });
+        </script>
+
+    </body>
 </html>

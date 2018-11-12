@@ -1,5 +1,5 @@
 {
-  "name": "ace editor",
+  "name": "ace-editor",
   "version": "1.0.0",
   "description": "Simple code editor example build with Ace and Electron",
   "main": "src/main.js",
