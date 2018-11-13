@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Python Editor</title>
+        <style type="text/css" media="screen">
+            body {
+                background: black; 
+            }
+            #codeEditor { 
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+        </style>
+        <!--导入js库-->
+        <script src="libs/ace/1.4.1/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="libs/ace/1.4.1/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+    </head>
+    
+    <body>
+        <!--代码输入框（注意请务必设置高度，否则无法显示）-->
+        <div id="codeEditor" class="ace_editor" style="min-height:400px">
+        </div>
+
+    <script type="text/javascript" charset="utf-8">
+        require('./editor.js')
+    </script>
+    <script type="text/javascript" charset="utf-8">
+      // You can also require other files to run in this process
+      require('./renderer.js')
+    </script>
+    <script src="libs/ace/1.4.1/mode-python.js" type="text/javascript" charset="utf-8"></script>
+    <script src="libs/ace/1.4.1/theme-monokai.js" type="text/javascript" charset="utf-8"></script>
+    </body>
+</html>
