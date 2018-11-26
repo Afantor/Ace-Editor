@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Python Editor</title>
+        <style type="text/css" media="screen">
+            body {
+                background: #FEFEFE; 
+            }
+            #codeEditor { 
+                position: absolute;
+                top: 48px;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+        </style>
+        <!--导入js库-->
+        <script src="libs/ace/1.4.1/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="libs/ace/1.4.1/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+    </head>
+    
+    <body>
+        <div id="main" class="vbox">
+            <div id="messagebar" class="hbox"></div>
+            <div id="toolbox" class="hbox">
+                <div id="commands" class="hbox" style="height: 34px; width:100%;">
+                    <a href="#"><input id="file_new" type="image" src="./static/image/file_add.png"  height="32px" width="32px" border="0" name="file_new" title="新建" onclick=""/></a>
+                    &nbsp;
+                    <input id="file_open" type="image" src="./static/image/open.png"  height="32px" width="32px" border="0" name="file_open" title="打开" onclick=""/>&nbsp;
+                    <input id="file_save" type="image" src="./static/image/save.png"  height="32px" width="32px" border="0" name="file_save" title="保存" onclick=""/>&nbsp;
+                    <input id="file_save_as" type="image" src="./static/image/save-as.png"  height="32px" width="32px" border="0" name="file_save_as" title="另存为" onclick=""/>&nbsp;
+                    <input id="file_find" type="image" src="./static/image/find.png"  height="32px" width="32px" border="0" name="file_find" title="查找" onclick=""/>&nbsp;
+                    <input id="run_play" type="image" src="./static/image/player_play.png"  height="32px" width="32px" border="0" name="run_play" title="运行" onclick=""/>&nbsp;
+                    <input id="run_stop" type="image" src="./static/image/player_stop.png"  height="32px" width="32px" border="0" name="run_stop" title="停止" onclick=""/>&nbsp;
+                    <input id="com_connect" type="image" src="./static/image/serialcom.png"  height="32px" width="32px" border="0" name="com_connect" title="打开串口" onclick=""/>&nbsp;
+                    <input id="connect_state" type="image" src="./static/image/disconnect.png"  height="32px" width="32px" border="0" name="connect_state" title="已断开" onclick=""/>&nbsp;
+                    <input id="terminal" type="image" src="./static/image/terminal.png"  height="32px" width="32px" border="0" name="terminal" title="打开终端" onclick=""/>&nbsp;
+                    <input id="zoom_in" type="image" src="./static/image/zoom-in.png"  height="32px" width="32px" border="0" name="zoom_in" title="放大" onclick=""/>&nbsp;
+                    <input id="zoom_out" type="image" src="./static/image/zoom-out.png"  height="32px" width="32px" border="0" name="zoom_out" title="缩小" onclick=""/>&nbsp;
+                    <input id="file_undo" type="image" src="./static/image/undo.png"  height="32px" width="32px" border="0" name="file_undo" title="撤销" onclick=""/>&nbsp;
+                    <input id="file_redo" type="image" src="./static/image/redo.png"  height="32px" width="32px" border="0" name="file_redo" title="重做" onclick=""/>&nbsp;
+                    <input id="img_cut" type="image" src="./static/image/camera.png"  height="32px" width="32px" border="0" name="img_cut" title="截图" onclick=""/>&nbsp;
+                    <input id="full_screen" type="image" src="./static/image/fullscreen.png"  height="32px" width="32px" border="0" name="full_screen" title="最大化" onclick=""/>&nbsp;
+                    <input id="set_config" type="image" src="./static/image/config.png"  height="32px" width="32px" border="0" name="set_config" title="设置" onclick=""/>
+                </div>    
+            </div>  
+        </div>
+        <!--代码输入框（注意请务必设置高度，否则无法显示）-->
+        <div id="codeEditor" class="ace_editor" style="min-height:400px">
+        </div>
+
+    <script type="text/javascript" charset="utf-8">
+        require('./editor.js')
+    </script>
+    <script type="text/javascript" charset="utf-8">
+      // You can also require other files to run in this process
+      require('./renderer.js')
+    </script>
+    <script src="libs/ace/1.4.1/mode-python.js" type="text/javascript" charset="utf-8"></script>
+    <script src="libs/ace/1.4.1/theme-monokai.js" type="text/javascript" charset="utf-8"></script>
+    </body>
+</html>
